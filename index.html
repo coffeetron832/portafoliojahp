@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Portafolio - jahp</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-size: 13px;
+            color: #222;
+            padding: 20px;
+            line-height: 1.4;
+        }
+
+        #pagecontainer { max-width: 800px; margin: 0 auto; }
+
+        /* Menú */
+        .menu { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ccc; }
+        .menu a { padding: 0 10px; border-right: 1px solid #222; color: #00e; text-decoration: none; cursor: pointer; }
+        .menu a:last-child { border-right: none; }
+
+        /* Ocultar secciones por defecto */
+        .content-section { display: none; }
+        .active { display: block; } 
+
+        h1 { font-size: 20px; margin-bottom: 10px; }
+        .date { color: #777; font-family: monospace; margin-right: 10px; }
+        a:visited { color: #551a8b; }
+        .placeholder { color: #d00; font-style: italic; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="pagecontainer">
+        <nav class="menu">
+            <a onclick="showSection('inicio')">Inicio</a>
+            <a onclick="showSection('proyectos')">Proyectos</a>
+            <a onclick="showSection('sobre-mi')">Sobre mí</a>
+            <a onclick="showSection('contacto')">Contacto</a>
+        </nav>
+
+        <div id="inicio" class="content-section active">
+            <h1>Bienvenido</h1>
+            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE TU BIENVENIDA O PRESENTACIÓN GENERAL]</span></p>
+        </div>
+
+        <div id="proyectos" class="content-section">
+            <h1>Proyectos</h1>
+            <ul>
+                <li><span class="date">2026-06-20</span> <span class="placeholder">[AQUÍ PON LA INFORMACIÓN DEL PROYECTO 1]</span></li>
+                <li><span class="date">2026-05-15</span> <span class="placeholder">[AQUÍ PON LA INFORMACIÓN DEL PROYECTO 2]</span></li>
+            </ul>
+        </div>
+
+        <div id="sobre-mi" class="content-section">
+            <h1>Sobre mí</h1>
+            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE TU BIOGRAFÍA O PERFIL PROFESIONAL]</span></p>
+        </div>
+
+        <div id="contacto" class="content-section">
+            <h1>Contacto</h1>
+            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE CONTACTO: CORREO, REDES O TELÉFONO]</span></p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
