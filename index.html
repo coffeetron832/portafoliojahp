@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Portafolio - jahp</title>
+    <title>Mi Portafolio - Directorio</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -24,6 +24,9 @@
         .active { display: block; } 
 
         h1 { font-size: 20px; margin-bottom: 10px; }
+        h2 { font-size: 15px; margin-top: 15px; color: #444; border-bottom: 1px solid #eee; }
+        ul { margin: 10px 0; padding-left: 20px; }
+        li { margin-bottom: 5px; }
         .date { color: #777; font-family: monospace; margin-right: 10px; }
         a:visited { color: #551a8b; }
         .placeholder { color: #d00; font-style: italic; font-weight: bold; }
@@ -41,25 +44,48 @@
 
         <div id="inicio" class="content-section active">
             <h1>Bienvenido</h1>
-            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE TU BIENVENIDA O PRESENTACIÓN GENERAL]</span></p>
+            <p><span class="placeholder">[INTRODUCCIÓN: Quién eres en una frase]</span></p>
+            <ul>
+                <li><span class="placeholder">Tu especialidad principal (ej. Desarrollador Web Fullstack)</span></li>
+                <li><span class="placeholder">Qué valor aportas (ej. Creo interfaces rápidas y eficientes)</span></li>
+            </ul>
         </div>
 
         <div id="proyectos" class="content-section">
             <h1>Proyectos</h1>
             <ul>
-                <li><span class="date">2026-06-20</span> <span class="placeholder">[AQUÍ PON LA INFORMACIÓN DEL PROYECTO 1]</span></li>
-                <li><span class="date">2026-05-15</span> <span class="placeholder">[AQUÍ PON LA INFORMACIÓN DEL PROYECTO 2]</span></li>
+                <li><span class="date">2026-06-20</span> <strong>Proyecto 1:</strong> <span class="placeholder">[Nombre del proyecto]</span>
+                    <ul>
+                        <li><span class="placeholder">Tecnologías usadas: (ej. HTML, CSS, JS)</span></li>
+                        <li><span class="placeholder">Problema que resuelve:</span></li>
+                        <li><span class="placeholder">Enlace al código o demo:</span></li>
+                    </ul>
+                </li>
+                <li><span class="date">2026-05-15</span> <strong>Proyecto 2:</strong> <span class="placeholder">[Nombre del proyecto]</span>
+                    <ul>
+                        <li><span class="placeholder">Tecnologías usadas:</span></li>
+                        <li><span class="placeholder">Logro principal:</span></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
         <div id="sobre-mi" class="content-section">
             <h1>Sobre mí</h1>
-            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE TU BIOGRAFÍA O PERFIL PROFESIONAL]</span></p>
+            <ul>
+                <li><strong>Experiencia:</strong> <span class="placeholder">[Años de experiencia o hitos importantes]</span></li>
+                <li><strong>Habilidades:</strong> <span class="placeholder">[Lista de lenguajes, herramientas, frameworks]</span></li>
+                <li><strong>Educación/Certificaciones:</strong> <span class="placeholder">[Títulos o cursos relevantes]</span></li>
+            </ul>
         </div>
 
         <div id="contacto" class="content-section">
             <h1>Contacto</h1>
-            <p><span class="placeholder">[AQUÍ PON LA INFORMACIÓN DE CONTACTO: CORREO, REDES O TELÉFONO]</span></p>
+            <ul>
+                <li><strong>Email:</strong> <span class="placeholder">[Tu correo electrónico]</span></li>
+                <li><strong>GitHub/LinkedIn:</strong> <span class="placeholder">[Enlaces a tus perfiles]</span></li>
+                <li><strong>Ubicación:</strong> <span class="placeholder">[Ciudad, País]</span></li>
+            </ul>
         </div>
     </div>
 
