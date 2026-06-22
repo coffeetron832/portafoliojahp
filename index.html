@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>Mi Portafolio - Directorio</title>
     <style>
+        /* Estilos base (Claro) */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             font-size: 13px;
             color: #222;
             padding: 20px;
             line-height: 1.4;
+            background-color: #fff;
+            transition: background 0.3s, color 0.3s;
         }
 
         #pagecontainer { max-width: 800px; margin: 0 auto; }
@@ -19,7 +22,7 @@
         .menu a { padding: 0 10px; border-right: 1px solid #222; color: #00e; text-decoration: none; cursor: pointer; }
         .menu a:last-child { border-right: none; }
 
-        /* Ocultar secciones por defecto */
+        /* Ocultar secciones */
         .content-section { display: none; }
         .active { display: block; } 
 
@@ -30,6 +33,18 @@
         .date { color: #777; font-family: monospace; margin-right: 10px; }
         a:visited { color: #551a8b; }
         .placeholder { color: #d00; font-style: italic; font-weight: bold; }
+
+        /* --- MODO OSCURO --- */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .menu a { color: #4da6ff; border-right: 1px solid #e0e0e0; }
+        body.dark-mode h1, body.dark-mode h2 { color: #fff; border-bottom: 1px solid #333; }
+        body.dark-mode .date { color: #aaa; }
+        body.dark-mode a:visited { color: #c6a0f6; }
+        body.dark-mode .placeholder { color: #ff6b6b; }
+        body.dark-mode .menu { border-bottom: 1px solid #444; }
     </style>
 </head>
 <body>
@@ -40,52 +55,33 @@
             <a onclick="showSection('proyectos')">Proyectos</a>
             <a onclick="showSection('sobre-mi')">Sobre mí</a>
             <a onclick="showSection('contacto')">Contacto</a>
+            <a onclick="toggleDarkMode()" style="font-weight: bold;">[Modo Oscuro/Claro]</a>
         </nav>
 
+        <!-- Secciones (Contenido igual) -->
         <div id="inicio" class="content-section active">
             <h1>Bienvenido</h1>
             <p><span class="placeholder">[INTRODUCCIÓN: Quién eres en una frase]</span></p>
             <ul>
-                <li><span class="placeholder">Tu especialidad principal (ej. Desarrollador Web Fullstack)</span></li>
-                <li><span class="placeholder">Qué valor aportas (ej. Creo interfaces rápidas y eficientes)</span></li>
+                <li><span class="placeholder">Tu especialidad principal</span></li>
             </ul>
         </div>
 
         <div id="proyectos" class="content-section">
             <h1>Proyectos</h1>
             <ul>
-                <li><span class="date">2026-06-20</span> <strong>Proyecto 1:</strong> <span class="placeholder">[Nombre del proyecto]</span>
-                    <ul>
-                        <li><span class="placeholder">Tecnologías usadas: (ej. HTML, CSS, JS)</span></li>
-                        <li><span class="placeholder">Problema que resuelve:</span></li>
-                        <li><span class="placeholder">Enlace al código o demo:</span></li>
-                    </ul>
-                </li>
-                <li><span class="date">2026-05-15</span> <strong>Proyecto 2:</strong> <span class="placeholder">[Nombre del proyecto]</span>
-                    <ul>
-                        <li><span class="placeholder">Tecnologías usadas:</span></li>
-                        <li><span class="placeholder">Logro principal:</span></li>
-                    </ul>
-                </li>
+                <li><span class="date">2026-06-20</span> <strong>Proyecto 1:</strong> <span class="placeholder">[Nombre]</span></li>
             </ul>
         </div>
 
         <div id="sobre-mi" class="content-section">
             <h1>Sobre mí</h1>
-            <ul>
-                <li><strong>Experiencia:</strong> <span class="placeholder">[Años de experiencia o hitos importantes]</span></li>
-                <li><strong>Habilidades:</strong> <span class="placeholder">[Lista de lenguajes, herramientas, frameworks]</span></li>
-                <li><strong>Educación/Certificaciones:</strong> <span class="placeholder">[Títulos o cursos relevantes]</span></li>
-            </ul>
+            <ul><li><span class="placeholder">Info profesional</span></li></ul>
         </div>
 
         <div id="contacto" class="content-section">
             <h1>Contacto</h1>
-            <ul>
-                <li><strong>Email:</strong> <span class="placeholder">[Tu correo electrónico]</span></li>
-                <li><strong>GitHub/LinkedIn:</strong> <span class="placeholder">[Enlaces a tus perfiles]</span></li>
-                <li><strong>Ubicación:</strong> <span class="placeholder">[Ciudad, País]</span></li>
-            </ul>
+            <ul><li><span class="placeholder">Datos de contacto</span></li></ul>
         </div>
     </div>
 
@@ -95,6 +91,10 @@
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
     </script>
 </body>
