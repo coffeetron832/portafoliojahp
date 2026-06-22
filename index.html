@@ -4,47 +4,76 @@
     <meta charset="UTF-8">
     <title>Mi Portafolio - Directorio</title>
     <style>
-        /* Estilos base (Claro) */
+        /* Paleta de colores por defecto (Modo Claro al estilo Craigslist) */
+        :root {
+            --bg-color: #fff;
+            --text-color: #222;
+            --secondary-text: #777;
+            --sub-heading: #444;
+            --border-color: #ccc;
+            --border-light: #eee;
+            --link-color: #00e;
+            --link-visited: #551a8b;
+        }
+
+        /* Paleta de colores para el Modo Oscuro */
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --secondary-text: #a0a0a0;
+            --sub-heading: #b0b0b0;
+            --border-color: #444;
+            --border-light: #222;
+            --link-color: #64b5f6; /* Azul más claro para contraste en pantallas oscuras */
+            --link-visited: #ba68c8; /* Púrpura adaptado para modo oscuro */
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             font-size: 13px;
-            color: #222;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             padding: 20px;
             line-height: 1.4;
-            background-color: #fff;
-            transition: background 0.3s, color 0.3s;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         #pagecontainer { max-width: 800px; margin: 0 auto; }
 
         /* Menú */
-        .menu { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ccc; }
-        .menu a { padding: 0 10px; border-right: 1px solid #222; color: #00e; text-decoration: none; cursor: pointer; }
-        .menu a:last-child { border-right: none; }
+        .menu { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+        .menu a, .menu button { padding: 0 10px; border-right: 1px solid var(--text-color); color: var(--link-color); text-decoration: none; cursor: pointer; }
+        .menu a:last-child, .menu button { border-right: none; }
+        
+        /* Botón de Modo Oscuro integrado en la estética */
+        .menu button {
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-bottom: none;
+            font-family: inherit;
+            font-size: inherit;
+            padding-right: 0;
+        }
+        .menu button:hover { text-decoration: underline; }
 
-        /* Ocultar secciones */
+        /* Ocultar secciones por defecto */
         .content-section { display: none; }
         .active { display: block; } 
 
         h1 { font-size: 20px; margin-bottom: 10px; }
-        h2 { font-size: 15px; margin-top: 15px; color: #444; border-bottom: 1px solid #eee; }
+        h2 { font-size: 15px; margin-top: 15px; color: var(--sub-heading); border-bottom: 1px solid var(--border-light); }
         ul { margin: 10px 0; padding-left: 20px; }
         li { margin-bottom: 5px; }
-        .date { color: #777; font-family: monospace; margin-right: 10px; }
-        a:visited { color: #551a8b; }
+        .date { color: var(--secondary-text); font-family: monospace; margin-right: 10px; }
+        
+        a { color: var(--link-color); text-decoration: none; }
+        a:visited { color: var(--link-visited); }
+        a:hover { text-decoration: underline; }
         .placeholder { color: #d00; font-style: italic; font-weight: bold; }
-
-        /* --- MODO OSCURO --- */
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        body.dark-mode .menu a { color: #4da6ff; border-right: 1px solid #e0e0e0; }
-        body.dark-mode h1, body.dark-mode h2 { color: #fff; border-bottom: 1px solid #333; }
-        body.dark-mode .date { color: #aaa; }
-        body.dark-mode a:visited { color: #c6a0f6; }
+        
+        /* Ajuste de color del marcador en modo oscuro para legibilidad */
         body.dark-mode .placeholder { color: #ff6b6b; }
-        body.dark-mode .menu { border-bottom: 1px solid #444; }
     </style>
 </head>
 <body>
@@ -55,33 +84,53 @@
             <a onclick="showSection('proyectos')">Proyectos</a>
             <a onclick="showSection('sobre-mi')">Sobre mí</a>
             <a onclick="showSection('contacto')">Contacto</a>
-            <a onclick="toggleDarkMode()" style="font-weight: bold;">[Modo Oscuro/Claro]</a>
+            <button onclick="toggleDarkMode()" id="dark-mode-btn">Modo Oscuro</button>
         </nav>
 
-        <!-- Secciones (Contenido igual) -->
         <div id="inicio" class="content-section active">
             <h1>Bienvenido</h1>
             <p><span class="placeholder">[INTRODUCCIÓN: Quién eres en una frase]</span></p>
             <ul>
-                <li><span class="placeholder">Tu especialidad principal</span></li>
+                <li><span class="placeholder">Tu especialidad principal (ej. Desarrollador Web Fullstack)</span></li>
+                <li><span class="placeholder">Qué valor aportas (ej. Creo interfaces rápidas y eficientes)</span></li>
             </ul>
         </div>
 
         <div id="proyectos" class="content-section">
             <h1>Proyectos</h1>
             <ul>
-                <li><span class="date">2026-06-20</span> <strong>Proyecto 1:</strong> <span class="placeholder">[Nombre]</span></li>
+                <li><span class="date">2026-06-20</span> <strong>Proyecto 1:</strong> <span class="placeholder">[Nombre del proyecto]</span>
+                    <ul>
+                        <li><span class="placeholder">Tecnologías usadas: (ej. HTML, CSS, JS)</span></li>
+                        <li><span class="placeholder">Problema que resuelve:</span></li>
+                        <li><span class="placeholder">Enlace al código o demo:</span></li>
+                    </ul>
+                </li>
+                <li><span class="date">2026-05-15</span> <strong>Proyecto 2:</strong> <span class="placeholder">[Nombre del proyecto]</span>
+                    <ul>
+                        <li><span class="placeholder">Tecnologías usadas:</span></li>
+                        <li><span class="placeholder">Logro principal:</span></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
         <div id="sobre-mi" class="content-section">
             <h1>Sobre mí</h1>
-            <ul><li><span class="placeholder">Info profesional</span></li></ul>
+            <ul>
+                <li><strong>Experiencia:</strong> <span class="placeholder">[Años de experiencia o hitos importantes]</span></li>
+                <li><strong>Habilidades:</strong> <span class="placeholder">[Lista de lenguajes, herramientas, frameworks]</span></li>
+                <li><strong>Educación/Certificaciones:</strong> <span class="placeholder">[Títulos o cursos relevantes]</span></li>
+            </ul>
         </div>
 
         <div id="contacto" class="content-section">
             <h1>Contacto</h1>
-            <ul><li><span class="placeholder">Datos de contacto</span></li></ul>
+            <ul>
+                <li><strong>Email:</strong> <span class="placeholder">[Tu correo electrónico]</span></li>
+                <li><strong>GitHub/LinkedIn:</strong> <span class="placeholder">[Enlaces a tus perfiles]</span></li>
+                <li><strong>Ubicación:</strong> <span class="placeholder">[Ciudad, País]</span></li>
+            </ul>
         </div>
     </div>
 
@@ -94,7 +143,17 @@
         }
 
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+            const body = document.body;
+            const btn = document.getElementById('dark-mode-btn');
+            
+            body.classList.toggle('dark-mode');
+            
+            // Cambia el texto del botón según el modo activo
+            if (body.classList.contains('dark-mode')) {
+                btn.textContent = 'Modo Claro';
+            } else {
+                btn.textContent = 'Modo Oscuro';
+            }
         }
     </script>
 </body>
