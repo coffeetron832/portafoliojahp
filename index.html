@@ -36,6 +36,33 @@
     line-height: 1; /
     display: block;
 }
+
+        /* Estilo del Footer en ASCII */
+        .ascii-footer {
+            font-family: monospace;
+            white-space: pre;
+            color: var(--grass-color);
+            line-height: 1;
+            user-select: none;
+            margin-top: 40px;
+            
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            
+            transform-origin: bottom center;
+            animation: vientoPixel 1.5s steps(2) infinite alternate;
+        }
+
+        .flower {
+            color: var(--flower-color);
+            font-weight: bold;
+        }
+
+        @keyframes vientoPixel {
+            0% { transform: skewX(-4deg); }
+            100% { transform: skewX(4deg); }
+        }
     </style>
 </head>
 <body>
@@ -74,6 +101,8 @@
         <li><a href="#">GitHub</a></li>
         <li><a href="https://www.instagram.com/ponton.0/">Instagram</a></li>
     </ul>
+
+    <pre class="ascii-footer">vvvvvvvvv<span class="flower">*</span>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv<span class="flower">*</span>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv<span class="flower">*</span>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv<span class="flower">*</span>vvvvvvvvv</pre>
 </div>
 
 <script>
