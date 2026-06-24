@@ -32,12 +32,15 @@
         a { color: var(--link-color); }
         a:visited { color: var(--link-visited); }
 
-        .ascii-art {
+        .ascii-title {
     font-family: monospace;
     white-space: pre;
-    line-height: 1; 
-    font-size: 8px;
+    line-height: 0.8;      
+    font-size: 8px;       
+    letter-spacing: -1px;  
     display: block;
+    margin: 15px 0;        
+    color: var(--text-color);
 }
 
         /* Estilo del Footer en ASCII */
@@ -75,7 +78,7 @@
         <button onclick="toggleDarkMode()" id="dark-mode-btn">Modo Oscuro</button>
     </div>
 
-    <h1 class="ascii-art">
+    <h1 class="ascii-title">
         ____  _                            _     __                            _            __        _             __
    / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _   ____ ___  (_)  ____  __/_/_____ _(_)___  ____ _/ /
   / __  / / _ \/ __ \ | / / _ \/ __ \/ / __  / __ \   / __ `/  / __ `__ \/ /  / __ \/ __ `/ __ `/ / __ \/ __ `/ / 
