@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Portafolio</title>
+    <title>Juan - Portafolio</title>
     <style>
         :root {
             --bg-color: #fff; --text-color: #222; --secondary-text: #777;
@@ -12,18 +12,17 @@
             --bg-color: #121212; --text-color: #e0e0e0; --secondary-text: #a0a0a0;
             --border-color: #444; --link-color: #64b5f6; --link-visited: #ba68c8;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; color: var(--text-color); background-color: var(--bg-color); padding: 20px; line-height: 1.4; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; color: var(--text-color); background-color: var(--bg-color); padding: 20px; line-height: 1.4; transition: background 0.2s; }
         #pagecontainer { max-width: 800px; margin: 0 auto; }
-
-        .menu { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
-        .menu a, .menu button { padding: 0 10px; border-right: 1px solid var(--text-color); color: var(--link-color); text-decoration: none; cursor: pointer; background: none; border-top: none; border-left: none; font-family: inherit; }
-        .menu a:last-child, .menu button { border-right: none; }
-
-        .content-section { display: none; }
-        .active { display: block; } 
+        
+        /* Controles */
+        .header-controls { margin-bottom: 30px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); text-align: right; }
+        button { background: none; border: none; color: var(--link-color); cursor: pointer; font-family: inherit; }
+        button:hover { text-decoration: underline; }
 
         h1 { font-size: 20px; margin-bottom: 10px; }
-        .img-placeholder { width: 150px; height: 150px; background: #ddd; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: #555; border: 1px dashed var(--secondary-text); }
+        h2 { font-size: 16px; margin-top: 30px; border-bottom: 1px solid var(--border-color); }
+        .img-placeholder { width: 150px; height: 150px; background: #eee; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; color: #555; border: 1px dashed var(--secondary-text); }
         
         .project-item { margin-bottom: 20px; }
         .contact-list { list-style: none; padding: 0; display: flex; gap: 15px; }
@@ -35,54 +34,39 @@
 <body>
 
 <div id="pagecontainer">
-    <nav class="menu">
-        <a onclick="showSection('inicio')">Inicio</a>
-        <a onclick="showSection('proyectos')">Proyectos</a>
-        <a onclick="showSection('sobre-mi')">Sobre mí</a>
-        <a onclick="showSection('contacto')">Contacto</a>
+    <div class="header-controls">
         <button onclick="toggleDarkMode()" id="dark-mode-btn">Modo Oscuro</button>
-    </nav>
-
-    <div id="inicio" class="content-section active">
-        <h1>Juan - The Vibe Coder</h1>
-        <div class="img-placeholder">Imagen aquí</div>
-        <p>Hola, bienvenido. Soy un programador entusiasta de la IA, el software libre y la privacidad.</p>
-        <p>En este portafolio encontrarás mi camino, mis proyectos y mi visión sobre la creación de software con sentido humano.</p>
     </div>
 
-    <div id="proyectos" class="content-section">
-        <h1>Proyectos</h1>
-        <div class="project-item">
-            <p><strong>2025 - Momento:</strong> Red social efímera de 24 horas. (Proyecto fallido/Lost Media).</p>
-        </div>
-        <div class="project-item">
-            <p><strong>2026 - [Nombre]:</strong> [Breve descripción]. <a href="#">Ver proyecto</a></p>
-        </div>
+    <h1>Juan - The Vibe Coder</h1>
+    <div class="img-placeholder">Imagen aquí</div>
+    
+    <p>Hola, bienvenido. Soy un programador entusiasta de la IA, el software libre y la privacidad. En este portafolio encontrarás mi camino, mis proyectos y mi visión sobre la creación de software con sentido humano. Me adentré en el mundo web hace un año y medio apoyado por asistentes de IA, enfocándome siempre en la experiencia de usuario y la resolución de problemas reales.</p>
+
+    <h2>Proyectos</h2>
+    <div class="project-item">
+        <p><strong>2025 - Momento:</strong> Red social efímera donde las publicaciones duraban 24 horas. Fue un proyecto fallido y actualmente es 'lost media', pero me enseñó mucho sobre el proceso de creación y cierre de productos.</p>
+    </div>
+    <div class="project-item">
+        <p><strong>2026 - [Nombre Proyecto]:</strong> [Descripción breve]. <a href="#">Link al proyecto</a></p>
     </div>
 
-    <div id="sobre-mi" class="content-section">
-        <h1>Sobre mí</h1>
-        <p>Experiencia: 1.5 años usando IA como pilar de desarrollo. Enfocado en UX y ética de datos.</p>
-    </div>
+    <h2>Sobre mí</h2>
+    <p>Cuento con 1.5 años de experiencia, priorizando la eficiencia y la ética. Desapruebo el envío de datos de usuario y soy un firme defensor del software libre.</p>
 
-    <div id="contacto" class="content-section">
-        <h1>Contacto</h1>
-        <ul class="contact-list">
-            <li><a href="mailto:tu@email.com">Email</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="https://www.instagram.com/ponton.0/">Instagram</a></li>
-        </ul>
-    </div>
+    <h2>Contacto</h2>
+    <ul class="contact-list">
+        <li><a href="mailto:tu@email.com">Email</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="https://www.instagram.com/ponton.0/">Instagram</a></li>
+    </ul>
 </div>
 
 <script>
-    function showSection(id) {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-    }
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode');
-        document.getElementById('dark-mode-btn').textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+        const btn = document.getElementById('dark-mode-btn');
+        btn.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
     }
 </script>
 </body>
