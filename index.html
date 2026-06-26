@@ -2,141 +2,357 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Portafolio - jahp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Juan (jahp)</title>
     <style>
+        /* Variables para Modo Claro y Modo Oscuro al estilo Wikipedia */
         :root {
-            --bg-color: #fff; --text-color: #222; --secondary-text: #777;
-            --border-color: #ccc; --link-color: #00e;
-            --grass-color: #2e7d32;
-            --flower-color: #f57c00;
-            --accent-green: #2e7d32;
+            --bg-body: #f6f6f6;
+            --bg-main: #ffffff;
+            --bg-box: #f8f9fa;
+            --bg-infobox-header: #b4d2f7;
+            --text-color: #202122;
+            --text-muted: #54595d;
+            --border-color: #a2a9b1;
+            --border-subtle: #eaecf0;
+            --link-color: #0645ad;
+            --link-hover: #0645ad;
+            --red-text: #d00;
+            --green-text: #2e7d32;
         }
+
         body.dark-mode {
-            --bg-color: #121212; --text-color: #e0e0e0; --secondary-text: #a0a0a0;
-            --border-color: #444; --link-color: #64b5f6; --link-visited: #ba68c8;
-            --accent-green: #81c784;
+            --bg-body: #1a1b1c;
+            --bg-main: #202122;
+            --bg-box: #2d2e30;
+            --bg-infobox-header: #2a4b7c;
+            --text-color: #f8f9fa;
+            --text-muted: #a2a9b1;
+            --border-color: #54595d;
+            --border-subtle: #3a3b3c;
+            --link-color: #6ea6ff;
+            --link-hover: #9ec2ff;
+            --red-text: #ff6b6b;
+            --green-text: #81c784;
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 13px; color: var(--text-color); background-color: var(--bg-color); padding: 20px; line-height: 1.4; transition: background 0.2s; }
-        #pagecontainer { max-width: 800px; margin: 0 auto; }
-        
-        .header-controls { margin-bottom: 30px; padding-bottom: 10px; text-align: right; }
-        button { background: none; border: none; color: var(--link-color); cursor: pointer; font-family: inherit; }
-        button:hover { text-decoration: underline; }
 
-        h1 { font-size: 20px; margin-bottom: 10px; }
-        h2 { font-size: 16px; margin-top: 30px; border-bottom: 1px solid var(--border-color); }
-        
-        .project-item { margin-bottom: 20px; }
-        .contact-list { list-style: none; padding: 0; display: flex; gap: 15px; }
-        
-        a { color: var(--link-color); }
+        /* Estilos base inspirados en MediaWiki */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-body);
+            color: var(--text-color);
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            grid-template-rows: 40px auto;
+            grid-template-areas: 
+                "header header"
+                "sidebar main";
+            min-height: 100vh;
+            transition: background-color 0.2s, color 0.2s;
+        }
 
-        .ascii-title {
-    font-family: monospace;
-    white-space: pre;
-    line-height: 1.0;      
-    font-size: 12px;       
-    letter-spacing: -1px;  
-    display: block;
-    margin: 15px 0;        
-    color: var(--text-color);
-}
-
-.ascii-title:hover {
-    cursor: help;
-    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-1px, 1px); }
-    40% { transform: translate(-1px, -1px); }
-    60% { transform: translate(1px, 1px); }
-    80% { transform: translate(1px, -1px); }
-    100% { transform: translate(0); }
-}
+        /* Barra Superior */
+        header {
+            grid-area: header;
+            background-color: var(--bg-body);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
         
+        header button {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--link-color);
+            padding: 4px 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 11px;
+            background-color: var(--bg-box);
+            border-radius: 2px;
+        }
+        header button:hover {
+            background-color: var(--border-subtle);
+            text-decoration: none;
+        }
+
+        /* Barra Lateral Izquierda */
+        aside {
+            grid-area: sidebar;
+            background-color: var(--bg-body);
+            padding: 15px;
+            font-size: 12px;
+        }
+        .logo-portfolio {
+            width: 130px;
+            height: 130px;
+            background-color: var(--border-subtle);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-family: serif;
+            font-size: 24px;
+        }
+        aside h3 {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 3px;
+            margin: 15px 0 5px 0;
+        }
+        aside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        aside ul li {
+            margin-bottom: 6px;
+        }
+        aside ul li a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        /* Contenedor Principal */
+        main {
+            grid-area: main;
+            background-color: var(--bg-main);
+            padding: 30px 40px;
+            border-left: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Títulos */
+        h1 {
+            font-family: 'Linux Libertine', 'Georgia', serif;
+            font-size: 28px;
+            font-weight: normal;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        h2 {
+            font-family: 'Linux Libertine', 'Georgia', serif;
+            font-size: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 3px;
+            margin-top: 30px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 14px;
+            text-align: justify;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Índice de Contenidos (Estilo Wiki) */
+        .toc {
+            background-color: var(--bg-box);
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .toc ul li {
+            margin-bottom: 4px;
+        }
+        .toc-number {
+            color: var(--text-color);
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        /* Ficha Técnica Personal (Infobox) */
+        .infobox {
+            float: right;
+            width: 280px;
+            background-color: var(--bg-box);
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            margin: 0 0 20px 20px;
+            font-size: 12px;
+        }
+        .infobox-title {
+            background-color: var(--bg-infobox-header);
+            color: var(--text-color);
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 6px;
+            transition: background-color 0.2s;
+        }
+        .infobox-image {
+            text-align: center;
+            padding: 10px 0;
+            background-color: var(--bg-main);
+        }
+        .infobox-image div {
+            width: 150px;
+            height: 150px;
+            background-color: var(--border-subtle);
+            border: 1px solid var(--border-color);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .infobox table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+        .infobox th {
+            text-align: left;
+            vertical-align: top;
+            width: 35%;
+            padding: 5px 4px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-color);
+        }
+        .infobox td {
+            padding: 5px 4px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-color);
+        }
+
+        /* Lista de Proyectos */
+        .project-list {
+            padding-left: 20px;
+        }
+        .project-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Clases de estado personalizadas */
         .red-text {
-    color: #d00; 
-    font-weight: bold; 
-}
-
+            color: var(--red-text);
+            font-weight: bold;
+        }
         .green-text {
-    color: var(--accent-green);
-    font-weight: bold;
-}
+            color: var(--green-text);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-<div id="pagecontainer">
-    <div class="header-controls">
+    <header>
         <button onclick="toggleDarkMode()" id="dark-mode-btn">Modo Oscuro</button>
-    </div>
+    </header>
 
-    <h1 class="ascii-title">
- ____ ____ ____ ____ ____ 
-||H |||o |||l |||a |||! ||
-||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|                             
-</h1>
-    
-    
-    <p>Mi nombre es Juan o <strong>jahp</strong>. Soy un programador junior entusiasta de la IA, el software libre y la privacidad. En este portafolio encontrarás mi camino, mis proyectos y mi visión sobre la creación de software con sentido humano. Me adentré en el mundo web hace un año y medio apoyado por asistentes de IA, enfocándome siempre en la experiencia de usuario y la resolución de problemas reales.</p>
+    <aside>
+        <div class="logo-portfolio">jahp</div>
 
-    <h2 class="ascii-title">
- ____ ____ ____ ____ ____ ____ ____ ____ ____ 
-||P |||r |||o |||y |||e |||c |||t |||o |||s ||
-||__|||__|||__|||__|||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-</h2>
-    <div class="project-item">
-        <p><strong>2025-05-07 - Momento:</strong> Red social efímera donde las publicaciones duraban 24 horas. Fue un proyecto fallido y actualmente es 'lost media', pero me enseñó mucho sobre el proceso de creación y cierre de productos. Estado: <span class="red-text">Inactivo, inexistente.</span></p>
-    </div>
-    <div class="project-item">
-        <p><strong>2025-07-13 - Dullchat (sollo, originalmente):</strong> Sala de chats efímera y segura para compartir con amigos. Al igual que el anterior proyecto no tuvo mucha relevancia, así que lo abandoné. Estado: <span class="red-text">Inactivo, inexistente</span>.</p>
-    </div>
-    <div class="project-item">
-        <p><strong>2026-04-13 - Reuuz:</strong> Página para impulsar la economía circular en Colombia, mediante las donaciones de objetos de segunda mano para personas que realmente lo necesiten, asegurando una segunda vida para el objeto y no su desecho temprano. Estado: <span class="red-text">Inactivo temporalmente.</span></p>
-    </div>
-    <div class="project-item">
-        <p><strong>2026-05 - unzipp:</strong> Herramienta web para la visualización de archivos comprimidos. Tuve un feedback o retroalimentación rotundamente negativa, por lo cual no seguí el proyecto y lo abandoné. Estado: <span class="red-text">Inactivo.</span> <a href="https://www.reddit.com/r/foss/comments/1taqf61/unzipp_a_local_compressed_file_viewer_open_source/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">Lo que fue unzipp</a></p>
-    </div>
-    <div class="project-item">
-        <p><strong>2026-06-23 - mascii (Music ASCII Player):</strong> Reproductor de música con enfoque ascii para uso en la terminal. Estado: <span class="green-text">Activo.</span> <a href="https://github.com/coffeetron832/mascii">Página oficial del repositorio en Github</a></p>
-    </div>
-    <div class="project-item">
-        <p><strong>2026-07-13 - M4tch3r:</strong> Juego de puzzle para jugar con amigos replicando patrones geométricos. Estado: <span class="green-text">Activo.</span> <a href="https://gamem4t.pages.dev/">Página oficial del juego</a></p>
-    </div>
+        <h3>Navegación</h3>
+        <ul>
+            <li><a href="#introduccion">Inicio</a></li>
+            <li><a href="#biografia">Sobre mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+        </ul>
 
-    <h2 class="ascii-title">
- ____ ____ ____ ____ ____ _________ ____ ____ 
-||S |||o |||b |||r |||e |||       |||m |||i ||
-||__|||__|||__|||__|||__|||_______|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/_______\|/__\|/__\|
-</h2>
-    <p>Cuento con 1.5 años de experiencia, priorizando la eficiencia y la ética. Desapruebo el envío de datos de usuario y soy un firme defensor del software libre.</p>
+        <h3>Contacto rápido</h3>
+        <ul>
+            <li><a href="mailto:tu@email.com">Email</a></li>
+            <li><a href="https://github.com/coffeetron832" target="_blank">GitHub</a></li>
+            <li><a href="https://www.instagram.com/ponton.0/" target="_blank">Instagram</a></li>
+        </ul>
+    </aside>
 
-    <h2 class="ascii-title">
- ____ ____ ____ ____ ____ ____ ____ ____ 
-||C |||o |||n |||t |||a |||c |||t |||o ||
-||__|||__|||__|||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|                                                                         
-</h2>
-    <ul class="contact-list">
-        <li><a href="mailto:tu@email.com">Email</a></li>
-        <li><a href="https://github.com/coffeetron832">GitHub</a></li>
-        <li><a href="https://www.instagram.com/ponton.0/">Instagram</a></li>
-    </ul>
+    <main>
+        <h1 id="introduccion">Juan (jahp)</h1>
+        
+        <div class="infobox">
+            <div class="infobox-title">Juan / jahp / coffeetron832</div>
+            <div class="infobox-image">
+                
+            </div>
+            <table>
+                <tr>
+                    <th>Ocupación</th>
+                    <td>Programador Junior</td>
+                </tr>
+                <tr>
+                    <th>Especialidad</th>
+                    <td>Desarrollo Web, IA, Software Libre</td>
+                </tr>
+                <tr>
+                    <th>Filosofía</th>
+                    <td>Privacidad, Código Abierto</td>
+                </tr>
+                <tr>
+                    <th>Enlaces</th>
+                    <td><a href="https://github.com/coffeetron832" target="_blank">GitHub Perfil</a></td>
+                </tr>
+            </table>
+        </div>
 
-</div>
+        <p>Mi nombre es Juan o <strong>jahp</strong>. Soy un programador junior entusiasta de la IA, el software libre y la privacidad. En este portafolio encontrarás mi camino, mis proyectos y mi visión sobre la creación de software con sentido humano. Me adentré en el mundo web hace un año y medio apoyado por asistentes de IA, enfocándome siempre en la experiencia de usuario y la resolución de problemas reales.</p>
 
-<script>
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        const btn = document.getElementById('dark-mode-btn');
-        btn.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
-    }
-</script>
+        <div class="toc">
+            <div class="toc-title">Índice</div>
+            <ul>
+                <li><a href="#biografia"><span class="toc-number">1</span> Sobre mí</a></li>
+                <li><a href="#proyectos"><span class="toc-number">2</span> Proyectos desarrollados</a></li>
+            </ul>
+        </div>
+
+        <h2 id="biografia">1 Sobre mí</h2>
+        <p>Cuento con 1.5 años de experiencia, priorizando la eficiencia y la ética. Desapruebo el envío de datos de usuario y soy un firme defensor y promotor del software libre.</p>
+
+        <h2 id="proyectos">2 Proyectos desarrollados</h2>
+        
+        <ul class="project-list">
+            <li><b>2025-05-07 — Momento:</b> Red social efímera donde las publicaciones duraban 24 horas. Fue un proyecto fallido y actualmente es 'lost media', pero me enseñó mucho sobre el proceso de creación y cierre de productos. Estado: <span class="red-text">Inactivo, inexistente.</span></li>
+            
+            <li><b>2025-07-13 — Dullchat (originalmente <i>sollo</i>):</b> Sala de chats efímera y segura para compartir con amigos. Al igual que el anterior proyecto no tuvo mucha relevancia, así que lo abandoné. Estado: <span class="red-text">Inactivo, inexistente.</span></li>
+            
+            <li><b>2026-04-13 — Reuuz:</b> Página para impulsar la economía circular en Colombia, mediante las donaciones de objetos de segunda mano para personas que realmente lo necesiten, asegurando una segunda vida para el objeto y no su desecho temprano. Estado: <span class="red-text">Inactivo temporalmente.</span></li>
+            
+            <li><b>2026-05 — unzipp:</b> Herramienta web para la visualización de archivos comprimidos. Tuve un feedback o retroalimentación rotundamente negativa, por lo cual no seguí el proyecto y lo abandoné. Estado: <span class="red-text">Inactivo.</span> <a href="https://www.reddit.com/r/foss/comments/1taqf61/unzipp_a_local_compressed_file_viewer_open_source/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" target="_blank">Enlace a la discusión de unzipp</a>.</li>
+            
+            <li><b>2026-06-23 — mascii (Music ASCII Player):</b> Reproductor de música con enfoque ascii para uso en la terminal. Estado: <span class="green-text">Activo.</span> <a href="https://github.com/coffeetron832/mascii" target="_blank">Repositorio oficial en GitHub</a>.</li>
+            
+            <li><b>2026-07-13 — M4tch3r:</b> Juego de puzzle para jugar con amigos replicando patrones geométricos. Estado: <span class="green-text">Activo.</span> <a href="https://gamem4t.pages.dev/" target="_blank">Página oficial del juego</a>.</li>
+        </ul>
+    </main>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('dark-mode-btn');
+            btn.textContent = document.body.classList.contains('dark-mode') ? 'Modo Claro' : 'Modo Oscuro';
+        }
+    </script>
 </body>
 </html>
